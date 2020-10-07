@@ -31,11 +31,11 @@ struct Printer{
 
         int processing_element = 0;
         std::apply(
-                [this, &processing_element](const auto& ...x){
+                [this, &processing_element](const auto& ...value){
                     ([&](){
                         if(processing_element++ > 0)
                             buffer << ',' << ' ';
-                        format(x);
+                        format(value);
                     }(), ...);
                 } , t
         );
@@ -67,13 +67,13 @@ private:
     Printer& format_iterable(const T& t, char open_bracket, char close_bracket, char separator=','){
         buffer << open_bracket << ' ';
 
-        int idx = 0;
+        int processing_element = 0;
         for(const auto& value : t){
-            if(idx++ != 0){
+            if(processing_element++ > 0)
                 buffer << ',' << ' ';
-            }
             format(value);
         }
+
         buffer << ' ' << close_bracket;
         return *this;
     }
@@ -84,6 +84,7 @@ template<typename T>
 std::string format(const T& t){
     return Printer().format(t).str();
 }
+
 
 int main() {
     std::tuple<> t_empty = {};
@@ -128,6 +129,13 @@ int main() {
     std::string s7 = Printer().format(" some junk: ").format(test_4).str();
     std::cout << s7 << std::endl;
     // " some junk: ( [ 53.21, 123, 341, 12 ], hello, (  ), ( 1 ), ( [ dasdas, sadad ], ( 12.52 ) ) )"
+
+    std::cout << std::endl;
+
+    std::cout << format(test_1) << std::endl;
+    std::cout << format(test_2) << std::endl;
+    std::cout << format(test_3) << std::endl;
+    std::cout << format(test_4) << std::endl;
 
     return 0;
 }
