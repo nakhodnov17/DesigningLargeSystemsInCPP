@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/test.h
+vector
+-
+string
+-
+iostream
+-
+
+C:/Users/nahod/Documents/CodeBlocks/MSU/9 semester/DesigningLargeSystemsInCPP/Task (from Lecture 05)/main.cpp
+set
+-
+tuple
+-
+vector
+-
+string
+-
+sstream
+-
+iostream
+-
+test.h
+-
+
