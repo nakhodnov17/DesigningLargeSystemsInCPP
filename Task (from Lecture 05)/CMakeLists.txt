@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.14)
 project(Task__from_Lecture_05_)
 
 set(CMAKE_CXX_STANDARD 20)

@@ -13,10 +13,10 @@
 struct Test {
 public:
     int n = 0;
-    bool verbose;
+    bool verbose{false};
     int* arr = nullptr;
 
-    Test(const std::vector<int>& v, bool verbose=false): verbose(verbose){
+    Test(const std::vector<int>& v) {
         if(verbose)
             std::cout << "construct" << std::endl;
         arr = new int[v.size()];
