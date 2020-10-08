@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/nahod/Documents/CodeBlocks/MSU/9 semester/DesigningLargeSystemsInCPP/Task (from Lecture 02)/main.cpp
+array
+-
+iostream
+-
+
